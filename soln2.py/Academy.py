@@ -6,7 +6,7 @@ class Academy:
         # self.id = id       
     
     def get_all_courses(self):
-        with open ('courses.csv', 'r') as data:
+        with open ('files/courses.csv', 'r') as data:
             courses =  csv.reader(data)
             for rows in courses:
                 print("{} : {}".format(rows[0], rows[1]))

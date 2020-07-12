@@ -1,6 +1,6 @@
 import csv
 
-class Academy:
+class Course:
     def __init__(self) :
         pass
         # self.id = id       
@@ -12,10 +12,6 @@ class Academy:
                 print("{} : {}".format(rows[0], rows[1]))
 
 
-    def student_inquiry(self):
-        pass
-
-academy_obj = Academy()
 
 # academy_obj.get_all_courses()
 

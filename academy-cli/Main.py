@@ -7,6 +7,8 @@ class Main (Academy, Student):
 
     # def __init__(self):
     #     pass
+    if __name__ == "__main__":
+        menu_selection()
 
     def menu_selection(self):
         options = {1:"Courses List"

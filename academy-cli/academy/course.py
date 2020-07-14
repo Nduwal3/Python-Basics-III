@@ -2,18 +2,25 @@ import csv
 
 class Course:
     def __init__(self) :
-        pass
-        # self.id = id       
+        pass       
+    
+    def __read_courses(self):
+        with open ('files/courses.csv', 'r') as data:
+            courses =  csv.DictReader(data)
+            course_data = []
+            for row in courses:
+                course_data.append(row)
+            return course_data
     
     def get_all_courses(self):
-        with open ('files/courses.csv', 'r') as data:
-            courses =  csv.reader(data)
-            for rows in courses:
-                print("{} : {}".format(rows[0], rows[1]))
+        courses = self.__read_courses()
+        row1 = next(iter(courses))
+        print(list(row1.keys()))
+        for data in courses:
+            print(list(data.values()))
+        
 
 
-
-# academy_obj.get_all_courses()
 
 
 

@@ -28,29 +28,8 @@ class Student:
         students_list = self.file_read_write(mode)
         val = next(iter(students_list))
         print(list(val.keys()))
-        # header=[]
-        # for key in val.keys():           
-        #     header.append(key)
-        # ', '.join(header)
-        # print(header)
         for item in students_list:
             print(list(item.values()))
-            # result = list(map(lambda n: n.values(), item))
-            # print(result)
-            # for student in item.values():
-            #     result.append(student)
-            # print(', '.join(result))
-            
-            
-        # print(students_list)
-        
-        
-            # students =  csv.reader(student_data)
-            # print("The list of students are::\nS")
-            # for rows in students:
-            #     print("{} : {}".format(rows[0], rows[1]))
-            # print("\n")
-
 
     def get_Student_info(self, name, mode):
         students_list = self.file_read_write(mode)

@@ -5,9 +5,11 @@ from .student import Student
 def main():
     print("welcomme to IT Academy")
     studentObj = Student()
-    # courseObj = Course()
+    courseObj = Course()
     choice = ''
     sub_choice = ''
+
+
     while choice != 'q': 
         choice = get_user_choice()
 
@@ -21,6 +23,7 @@ def main():
         else:
             print("\nI didn't understand that choice.\n")
 
+
         if choice == '1' and sub_choice =='1':            
             studentObj.get_all_students(mode='r')
         elif choice == '1' and sub_choice =='2':
@@ -30,18 +33,14 @@ def main():
             name = input("enter your fullname:::eg(John Doe)\n")
             studentObj.update_student_detail(format_name(name), mode='a'), 
         elif choice == '1' and sub_choice =='4':
-            name = input("enter your fullname:::eg(John Doe)\n")
-            email = input("enter your email:::eg(John@mail.com)\n")
-            course = input("enter Courses to enroll:::eg(python)\n")
-            balance = input("make full installment :::eg(1000000)\n")
-            data = []
-            data.append(name)
-            data.append(email)
-            data.append(balance)
-            studentObj.create_new_student(data, mode='a+')
+            student_data = student_create_data()
+            studentObj.create_new_student(student_data, mode='a+')
         elif choice == '1' and sub_choice =='5':
             name = input("enter your fullname:::eg(John Doe)\n")
             studentObj.delete_student(format_name(name), mode='r')
+        elif choice =='2' and sub_choice == '1':
+            courseObj.get_all_courses()
+
         elif choice == 'q':
             print("\n Bye Bye.")
         else:
@@ -71,9 +70,21 @@ def get_student_options():
 
 def get_course_options():
     print("\n[1] Enquire about Course")
-    print("[2] Enroll into a course.")
+    # print("[2] Enroll into a course.")
     print("[q] Quit.")    
     return input("What would you like to do? ")
+
+def student_create_data():
+    name = input("enter your fullname:::eg(John Doe)\n")
+    email = input("enter your email:::eg(John@mail.com)\n")
+    course = input("enter Courses to enroll:::eg(python)\n")
+    balance = input("make full installment :::eg(1000000)\n")
+    data = []
+    data.append(format_name(name))
+    data.append(email)
+    data.append(balance)
+    return data
+
 
 def format_name(name):
     fullname = name.split(' ')
